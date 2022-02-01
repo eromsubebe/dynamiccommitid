@@ -4,6 +4,13 @@ pipeline {
     ansiColor('xterm')
   }
 
+  def branch = env.BRANCH_NAME
+  def commit = env.GIT_COMMIT
+
+  // Usage 
+  // sh 'echo $BRANCH_NAME'
+  // sh 'echo $GIT_COMMIT'
+
   agent {
     kubernetes {
       yamlFile 'builder.yaml'

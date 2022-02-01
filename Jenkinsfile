@@ -1,5 +1,7 @@
 pipeline {
-
+  environment {
+    TAG = 'blue'
+  }
   options {
     ansiColor('xterm')
   }
@@ -18,6 +20,18 @@ pipeline {
   }
 
   stages {
+
+    stage(testenv) {
+      steps {
+        script {
+          def fields = env.getEnvironment()
+          fields.each {
+            key, value --> println("${key} = ${value}");
+          }
+          println(env.PATH)
+        }
+      }
+    }
 
     stage('Kaniko Build & Push Image') {
       steps {

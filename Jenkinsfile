@@ -4,8 +4,8 @@ pipeline {
     ansiColor('xterm')
   }
 
-  def branch = env.BRANCH_NAME
-  def commit = env.GIT_COMMIT
+  // def branch = env.BRANCH_NAME
+  // def commit = env.GIT_COMMIT
 
   // Usage 
   // sh 'echo $BRANCH_NAME'
